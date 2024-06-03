@@ -1,0 +1,7 @@
+D:\DemoGithub\Oop.Tuan\Oop.Tuan\bin\Debug\Oop.Tuan.exe.config
+D:\DemoGithub\Oop.Tuan\Oop.Tuan\bin\Debug\Oop.Tuan.exe
+D:\DemoGithub\Oop.Tuan\Oop.Tuan\bin\Debug\Oop.Tuan.pdb
+D:\DemoGithub\Oop.Tuan\Oop.Tuan\obj\Debug\Oop.Tuan.csproj.AssemblyReference.cache
+D:\DemoGithub\Oop.Tuan\Oop.Tuan\obj\Debug\Oop.Tuan.csproj.CoreCompileInputs.cache
+D:\DemoGithub\Oop.Tuan\Oop.Tuan\obj\Debug\Oop.Tuan.exe
+D:\DemoGithub\Oop.Tuan\Oop.Tuan\obj\Debug\Oop.Tuan.pdb
