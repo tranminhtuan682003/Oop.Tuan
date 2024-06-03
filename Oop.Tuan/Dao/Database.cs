@@ -45,7 +45,6 @@ namespace Oop.Tuan.Dao
                 }
             }
         }
-
         public void DeleteTable(string name, int id)
         {
             foreach(BaseRow item in mydatabase[name])

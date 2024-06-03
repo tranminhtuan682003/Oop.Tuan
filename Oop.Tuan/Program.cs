@@ -14,9 +14,10 @@ namespace Oop.Tuan
     {
         static void Main(string[] args)
         {
-            DatabaseDemo demo = new DatabaseDemo();
-            demo.InitDatabase();
-            demo.PrintTableTest();
+            CategoryDaoDemo categoryDaoDemo = new CategoryDaoDemo();
+            categoryDaoDemo.InsertTest(new Category(1, "category"));
+            categoryDaoDemo.FindAllTest("Category");
+            categoryDaoDemo.Print();
         }
     }
 }

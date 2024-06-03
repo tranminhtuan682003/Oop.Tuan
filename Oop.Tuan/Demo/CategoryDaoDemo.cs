@@ -9,20 +9,23 @@ using System.Threading.Tasks;
 
 namespace Oop.Tuan.Demo
 {
-    internal class CategoryDaoDemo
+    internal class CategoryDaoDemo : Database
     {
-        public Database database;
         public void InsertTest(BaseRow obj)
         {
-            database.InsertTable(obj);
+            InsertTable(obj);
         }
         public void FindAllTest(string name)
         {
-            database.SelectTable(name);
+            SelectTable(name);
         }
         public void UpdateTest(BaseRow obj,int id)
         {
-            database.UpdateTable(obj,id);
+           UpdateTable(obj,id);
+        }
+        public void Print()
+        {
+            PrintMydatabase();
         }
     }
 }

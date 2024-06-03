@@ -1,4 +1,5 @@
-﻿using Oop.Tuan.Entity;
+﻿using Oop.Tuan.Base;
+using Oop.Tuan.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,12 +8,11 @@ using System.Threading.Tasks;
 
 namespace Oop.Tuan.Dao
 {
-    internal class CategoryDAO
+    internal class CategoryDAO : Database
     {
-        public Database database;
-        public bool InsertCategory()
+        public bool InsertCategory(BaseRow obj)
         {
-            database.InsertTable(new Category(1001, "Orion"));
+            InsertTable(obj);
             return true;
         }
     }

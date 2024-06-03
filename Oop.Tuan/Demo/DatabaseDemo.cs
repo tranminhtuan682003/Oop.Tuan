@@ -1,52 +1,46 @@
 ﻿using Oop.Tuan.Base;
 using Oop.Tuan.Dao;
 using Oop.Tuan.Entity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Oop.Tuan.Demo
 {
     internal class DatabaseDemo : Database
     {
-        public void InsertTableTest()
+        public void InsertTableTest(BaseRow obj)
         {
-            base.InsertTable(new Product(1,"fff",3));
+            InsertTable(obj);
         }
-        public void SelectTableTest()
+        public void SelectTableTest(string name)
         {
-            base.SelectTable("Product");
+            SelectTable(name);
         }
-        public void UpdateTableTest()
+        public void UpdateTableTest(BaseRow obj,int id)
         {
-            base.UpdateTable(new Product(1, "fff", 4), 2);
+            UpdateTable(obj, id);
         }
-        public void DeleteTableTest()
+        public void DeleteTableTest(string name,int id)
         {
-            base.DeleteTable("Product", 2);
+            DeleteTable(name,id);
         }
         public void TruncateTableTest()
         {
-            base.TruncateTable();
+            TruncateTable();
         }
         public void InitDatabase()
         {
             for(int i = 0; i < 10; i++)
             {
-                base.InsertTable(new Product(i, "product " + i, i));
-                base.InsertTable(new Category(i, "category " + i));
-                base.InsertTable(new Accessotion(i, "Accessotion " + i));
+                InsertTable(new Product(i, "product " + i, i));
+                InsertTable(new Category(i, "category " + i));
+                InsertTable(new Accessotion(i, "Accessotion " + i));
             }
         }
         public void PrintTableTest()
         {
-            base.PrintMydatabase();
+            PrintMydatabase();
         }
-        public void updateTableTest()
+        public void updateTableTest(BaseRow obj,int id)
         {
-            base.UpdateTableById(new Product(1, "fff", 4),1);
+            UpdateTableById(obj,id);
         }
     }
 }
