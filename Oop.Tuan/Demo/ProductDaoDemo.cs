@@ -1,6 +1,5 @@
 ﻿using Oop.Tuan.Base;
 using Oop.Tuan.Dao;
-using Oop.Tuan.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,24 +8,24 @@ using System.Threading.Tasks;
 
 namespace Oop.Tuan.Demo
 {
-    public class CategoryDaoDemo
+    public class ProductDaoDemo
     {
-        public void InsertCategoryTest(BaseRow obj)
+        public void InsertProductTest(BaseRow obj)
         {
             Database.GetInstance().InsertTable(obj);
         }
 
-        public void SelectCategoryTest(string productName)
+        public void SelectProductTest(string productName)
         {
             Database.GetInstance().SelectTable(productName);
         }
 
-        public void UpdateCategoryTest(BaseRow obj, int id)
+        public void UpdateProductTest(BaseRow obj, int id)
         {
             Database.GetInstance().UpdateTable(obj, id);
         }
 
-        public void FindCategoryTest(string productName)
+        public void FindProductTest(string productName)
         {
             Database.GetInstance().PrintInforTable(productName);
         }

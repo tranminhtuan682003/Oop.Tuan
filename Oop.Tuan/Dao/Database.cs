@@ -7,23 +7,47 @@ using System.Threading.Tasks;
 
 namespace Oop.Tuan.Dao
 {
-    internal class Database
+    public class Database
     {
+        private static Database instance;
+        /// <summary>
+        /// sử dụng cấu trúc dữ liệu Dictionary để luuw trữ tên bảng và các hàng
+        /// </summary>
+        public Dictionary<string, List<BaseRow>> mydatabase = new Dictionary<string, List<BaseRow>>();
 
-        public Dictionary<string, List<BaseRow>> mydatabase = new Dictionary<string,List<BaseRow>>();
+        /// <summary>
+        /// Hàm GetInstance tạo một thể hiện duy nhất của database để truy cập tới.
+        /// </summary>
+        public static Database GetInstance()
+        {
+            if (instance == null)
+            {
+                instance = new Database();
+            }
+            return instance;
+        }
+
+        /// <summary>
+        /// hàm insertTable để thêm các bảng.
+        /// obj : lấy tên các đối tượng con của baseRow làm tên bảng.
+        /// </summary>
         public void InsertTable(BaseRow obj)
         {
-            if (!mydatabase.ContainsKey(obj.typeName))
+            if (!mydatabase.ContainsKey(obj.GetType().Name))
             {
-                mydatabase[obj.typeName] = new List<BaseRow>();
+                mydatabase[obj.GetType().Name] = new List<BaseRow>();
             }
-            mydatabase[obj.typeName].Add(obj);
+            mydatabase[obj.GetType().Name].Add(obj);
         }
+
+        /// <summary>
+        /// Hàm selecTable để lấy ra dang sách các hàng trong một bảng.
+        /// name : truyền vào tên bảng.
+        /// </summary>
         public List<BaseRow> SelectTable(string name)
         {
             if (!mydatabase.ContainsKey(name))
             {
-                Console.WriteLine("Dot");
                 return null;
             }
             else
@@ -32,57 +56,91 @@ namespace Oop.Tuan.Dao
                 row = mydatabase[name];
                 return row;
             }
-            
         }
+
+        /// <summary>
+        /// Hàm UpdateTable để thay đổi giá trị các thuộc tính của một dòng trong bảng.
+        /// obj : để lấy tên bảng và cập nhật các giá trị thay đổi.
+        /// id : tìm id có trong bảng. 
+        /// </summary>
         public void UpdateTable(BaseRow obj, int id)
         {
-            foreach(BaseRow item in mydatabase[obj.typeName])
+            string key = obj.GetType().Name;
+            if (mydatabase.ContainsKey(key))
             {
-                if(item.id == id)
+                int index = mydatabase[key].FindIndex(item => item.Id == id);
+                if (index != -1)
                 {
-                    int position = mydatabase[obj.typeName].IndexOf(item);
-                    mydatabase[obj.typeName][position] = obj;
+                    mydatabase[key][index] = obj;
                 }
             }
         }
+
+        /// <summary>
+        /// Hàm DeleteTable xoá dòng trong bảng.
+        /// name : truyền vào tên bảng.
+        /// id : truyền vào id của dòng trong bảng để xoá dòng chứa id.
+        /// </summary>
         public void DeleteTable(string name, int id)
         {
-            foreach(BaseRow item in mydatabase[name])
+            foreach (BaseRow item in mydatabase[name])
             {
-                if(item.id == id)
+                if (item.Id == id)
                 {
                     mydatabase[name].Remove(item);
                     return;
                 }
             }
         }
+
+        /// <summary>
+        /// Hàm TruncateTable xoá toàn bộ các bảng có trong database.
+        /// </summary>
         public void TruncateTable()
         {
-            foreach(var item in mydatabase.Keys)
+            foreach (var item in mydatabase.Keys)
             {
                 mydatabase[item].Clear();
             }
         }
+
+        /// <summary>
+        /// Hàm PrintMydatabase để in ra các thong tin của các bảng có trong database
+        /// </summary>
         public void PrintMydatabase()
         {
-            foreach(var typeItem in mydatabase.Keys)
+            foreach (var typeItem in mydatabase.Keys)
             {
-                foreach(var item in mydatabase[typeItem])
+                foreach (var item in mydatabase[typeItem])
                 {
                     item.Infor();
                 }
             }
         }
-        public void UpdateTableById(BaseRow obj ,int id)
+
+        public void PrintInforTable(string tableName)
         {
-            foreach (BaseRow item in mydatabase[obj.typeName])
+            foreach(var item in mydatabase[tableName])
             {
-                if (item.id == id)
+                item.Infor();
+            }
+        }
+
+        /// <summary>
+        /// Hàm UpdateTableById để cập nhặt các dòng trong bảng bằng id truyền vào
+        /// </summary>
+        public void UpdateTableById(BaseRow obj, int id)
+        {
+            string key = obj.GetType().Name;
+            if (mydatabase.ContainsKey(key))
+            {
+                int index = mydatabase[key].FindIndex(item => item.Id == id);
+                if (index != -1)
                 {
-                    int position = mydatabase[obj.typeName].IndexOf(item);
-                    mydatabase[obj.typeName][position] = obj;
+                    mydatabase[key][index] = obj;
                 }
             }
         }
+
     }
 }

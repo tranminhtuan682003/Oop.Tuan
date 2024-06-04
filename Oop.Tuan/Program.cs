@@ -10,14 +10,21 @@ using System.Threading.Tasks;
 
 namespace Oop.Tuan
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            CategoryDaoDemo categoryDaoDemo = new CategoryDaoDemo();
-            categoryDaoDemo.InsertTest(new Category(1, "category"));
-            categoryDaoDemo.FindAllTest("Category");
-            categoryDaoDemo.Print();
+            object database1 = Database.GetInstance();
+            object database2 = Database.GetInstance();
+            
+            if (database2 == database1)
+            {
+                Console.WriteLine(true);
+            }
+            else
+            {
+                Console.WriteLine(false);
+            }
         }
     }
 }

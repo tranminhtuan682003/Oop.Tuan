@@ -7,13 +7,12 @@ using System.Threading.Tasks;
 
 namespace Oop.Tuan.Entity
 {
-    internal class Category : BaseRow
+    public class Category : BaseRow
     {
         public Category(int id, string name)
         {
-            this.id = id;
-            this.name = name;
-            typeName = "Category";
+            this.Id = id;
+            this.Name = name;
         }
 
         public override void Infor()

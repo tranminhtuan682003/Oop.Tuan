@@ -8,12 +8,29 @@ using System.Threading.Tasks;
 
 namespace Oop.Tuan.Dao
 {
-    internal class CategoryDAO : Database
+    public class CategoryDAO : BaseDao
     {
-        public bool InsertCategory(BaseRow obj)
+        /// <summary>
+        /// Hàm InsertCategory để insert đối tượng Category vào database
+        /// </summary>
+        public void InsertCategory(BaseRow obj)
         {
             InsertTable(obj);
-            return true;
+        }
+
+        public void UpdateCategory(BaseRow obj, int id)
+        {
+            UpdateTable(obj, id);
+        }
+
+        public void SelectCategory(string Categoryname)
+        {
+            SelectTable(Categoryname);
+        }
+
+        public void PrintCategory(string CategoryName)
+        {
+            PrintInforTable(CategoryName);
         }
     }
 }

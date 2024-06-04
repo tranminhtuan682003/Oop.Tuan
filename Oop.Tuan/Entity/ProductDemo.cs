@@ -7,14 +7,15 @@ using System.Threading.Tasks;
 
 namespace Oop.Tuan.Entity
 {
-    internal class ProductDemo : BaseRow
+    public class ProductDemo : BaseRow
     {
         private int categoryId {  get; set; }
         public ProductDemo(int id,string name,int categoryId) {
-            this.id = id;
-            this.name = name;
+            this.Id = id;
+            this.Name = name;
             this.categoryId = categoryId;
         }
+
         public override void Infor()
         {
             base.Infor();
