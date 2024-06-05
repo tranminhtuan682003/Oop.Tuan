@@ -14,17 +14,21 @@ namespace Oop.Tuan
     {
         static void Main(string[] args)
         {
-            object database1 = Database.GetInstance();
-            object database2 = Database.GetInstance();
-            
-            if (database2 == database1)
-            {
-                Console.WriteLine(true);
-            }
-            else
-            {
-                Console.WriteLine(false);
-            }
+            Database database = Database.Instance;
+
+            Console.WriteLine("truoc khi khoi tao : ");
+
+            DatabaseDemo databasedemo = new DatabaseDemo();
+            databasedemo.InitDatabase();
+
+            Console.WriteLine("sau khi khoi tao : ");
+
+            database.InsertTable(new Category(10, "tuan"));
+            database.UpdateTable(new Category(11, "noname"), 10);
+            database.DeleteTable("Category", 11);
+            database.TruncateTable();
+            database.PrintMydatabase();
+            //database.PrintInforTable("Category");
         }
     }
 }

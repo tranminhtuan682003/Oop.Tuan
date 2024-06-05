@@ -11,24 +11,27 @@ namespace Oop.Tuan.Demo
 {
     public class CategoryDaoDemo
     {
+        /// <summary>
+        /// CategoryDaoDemo sử dụng lại các phương thức của Database và dùng Category làm row.
+        /// </summary>
         public void InsertCategoryTest(BaseRow obj)
         {
-            Database.GetInstance().InsertTable(obj);
+            Database.Instance.InsertTable(obj);
         }
 
         public void SelectCategoryTest(string productName)
         {
-            Database.GetInstance().SelectTable(productName);
+            Database.Instance.SelectTable(productName);
         }
 
         public void UpdateCategoryTest(BaseRow obj, int id)
         {
-            Database.GetInstance().UpdateTable(obj, id);
+            Database.Instance.UpdateTable(obj, id);
         }
 
         public void FindCategoryTest(string productName)
         {
-            Database.GetInstance().PrintInforTable(productName);
+            Database.Instance.PrintInforTable(productName);
         }
     }
 }

@@ -17,28 +17,28 @@ namespace Oop.Tuan.Dao
         /// </summary>
         public bool InsertTable(BaseRow obj)
         {
-            Database.GetInstance().InsertTable(obj);
+            Database.Instance.InsertTable(obj);
             return true;
         }
 
         public void UpdateTable(BaseRow obj,int id)
         {
-            Database.GetInstance().UpdateTable(obj,id);
+            Database.Instance.UpdateTable(obj,id);
         }
 
         public void SelectTable(string name)
         {
-            Database.GetInstance().SelectTable(name);
+            Database.Instance.SelectTable(name);
         }
 
         public void DeleteAllRow()
         {
-            Database.GetInstance().TruncateTable();
+            Database.Instance.TruncateTable();
         }
 
         public void PrintInforTable(string tablename)
         {
-            Database.GetInstance().PrintInforTable(tablename);
+            Database.Instance.PrintInforTable(tablename);
         }
     }
 }

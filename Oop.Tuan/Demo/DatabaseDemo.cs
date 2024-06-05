@@ -10,27 +10,27 @@ namespace Oop.Tuan.Demo
         /// </summary>
         public void InsertTableTest(BaseRow obj)
         {
-            Database.GetInstance().InsertTable(obj);
+            Database.Instance.InsertTable(obj);
         }
 
         public void SelectTableTest(string name)
         {
-             Database.GetInstance().SelectTable(name);
+             Database.Instance.SelectTable(name);
         }
 
         public void UpdateTableTest(BaseRow obj,int id)
         {
-            Database.GetInstance().UpdateTable(obj, id);
+            Database.Instance.UpdateTable(obj, id);
         }
 
         public void DeleteTableTest(string name,int id)
         {
-            Database.GetInstance().DeleteTable(name,id);
+            Database.Instance.DeleteTable(name,id);
         }
 
         public void TruncateTableTest()
         {
-            Database.GetInstance().TruncateTable();
+            Database.Instance.TruncateTable();
         }
 
         /// <summary>
@@ -40,20 +40,20 @@ namespace Oop.Tuan.Demo
         {
             for(int i = 0; i < 10; i++)
             {
-                Database.GetInstance().InsertTable(new Product(i, "product " + i, i));
-                Database.GetInstance().InsertTable(new Category(i, "category " + i));
-                Database.GetInstance().InsertTable(new Accessotion(i, "Accessotion " + i));
+                Database.Instance.InsertTable(new Product(i, "product " + i, i));
+                Database.Instance.InsertTable(new Category(i, "category " + i));
+                Database.Instance.InsertTable(new Accessotion(i, "Accessotion " + i));
             }
         }
 
         public void PrintTableTest()
         {
-            Database.GetInstance().PrintMydatabase();
+            Database.Instance.PrintMydatabase();
         }
 
         public void updateTableTest(BaseRow obj,int id)
         {
-            Database.GetInstance().UpdateTableById(obj,id);
+            Database.Instance.UpdateTableById(obj,id);
         }
     }
 }

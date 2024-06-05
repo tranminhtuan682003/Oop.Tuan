@@ -9,12 +9,18 @@ namespace Oop.Tuan.Entity
 {
     public class Category : BaseRow
     {
+        /// <summary>
+        /// hàm khởi tạo của class Category
+        /// </summary>
         public Category(int id, string name)
         {
             this.Id = id;
             this.Name = name;
         }
 
+        /// <summary>
+        /// Category triển khai lại phương thức Infor theo cách riêng của mình
+        /// </summary>
         public override void Infor()
         {
             base.Infor();

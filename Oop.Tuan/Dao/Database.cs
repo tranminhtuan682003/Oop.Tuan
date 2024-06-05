@@ -4,29 +4,41 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Oop.Tuan.Dao
 {
     public class Database
     {
-        private static Database instance;
+        private static readonly Lazy<Database> Lazy = new Lazy<Database>(() => new Database());
+        //private static Database instance;
+
         /// <summary>
         /// sử dụng cấu trúc dữ liệu Dictionary để luuw trữ tên bảng và các hàng
         /// </summary>
-        public Dictionary<string, List<BaseRow>> mydatabase = new Dictionary<string, List<BaseRow>>();
+        private Dictionary<string, List<BaseRow>> mydatabase;
 
         /// <summary>
         /// Hàm GetInstance tạo một thể hiện duy nhất của database để truy cập tới.
         /// </summary>
-        public static Database GetInstance()
+
+        //public static Database Instance()
+        //{
+        //    if (instance == null)
+        //    {
+        //        instance = new Database();
+        //    }
+        //    return instance;
+        //}
+        public static Database Instance
         {
-            if (instance == null)
-            {
-                instance = new Database();
-            }
-            return instance;
+            get { return Lazy.Value; }
         }
 
+        private Database()
+        {
+            mydatabase = new Dictionary<string, List<BaseRow>>();
+        }
         /// <summary>
         /// hàm insertTable để thêm các bảng.
         /// obj : lấy tên các đối tượng con của baseRow làm tên bảng.
@@ -50,12 +62,9 @@ namespace Oop.Tuan.Dao
             {
                 return null;
             }
-            else
-            {
-                List<BaseRow> row = new List<BaseRow>();
-                row = mydatabase[name];
-                return row;
-            }
+            List<BaseRow> row = new List<BaseRow>();
+            row = mydatabase[name];
+            return row;
         }
 
         /// <summary>
@@ -120,6 +129,7 @@ namespace Oop.Tuan.Dao
 
         public void PrintInforTable(string tableName)
         {
+
             foreach(var item in mydatabase[tableName])
             {
                 item.Infor();

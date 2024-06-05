@@ -10,24 +10,27 @@ namespace Oop.Tuan.Demo
 {
     public class ProductDaoDemo
     {
+        /// <summary>
+        /// ProductDaoDemo sử dụng lại các phương thức của Database và dùng Product làm row. 
+        /// </summary>
         public void InsertProductTest(BaseRow obj)
         {
-            Database.GetInstance().InsertTable(obj);
+            Database.Instance.InsertTable(obj);
         }
 
         public void SelectProductTest(string productName)
         {
-            Database.GetInstance().SelectTable(productName);
+            Database.Instance.SelectTable(productName);
         }
 
         public void UpdateProductTest(BaseRow obj, int id)
         {
-            Database.GetInstance().UpdateTable(obj, id);
+            Database.Instance.UpdateTable(obj, id);
         }
 
         public void FindProductTest(string productName)
         {
-            Database.GetInstance().PrintInforTable(productName);
+            Database.Instance.PrintInforTable(productName);
         }
     }
 }

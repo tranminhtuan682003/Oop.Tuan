@@ -11,25 +11,5 @@ namespace Oop.Tuan.Demo
 {
     public class AccessoryDAO : BaseDao
     {
-        public void InsertAccessory(BaseRow obj)
-        {
-            InsertTable(obj);
-        }
-
-        public void UpdateAccessory(BaseRow obj, int id)
-        {
-            UpdateTable(obj, id);
-        }
-
-
-        public void SelectAccessory(string Accessoryname)
-        {
-            SelectTable(Accessoryname);
-        }
-
-        public void PrintAccessory(string accessoryName)
-        {
-            PrintInforTable(accessoryName);
-        }
     }
 }

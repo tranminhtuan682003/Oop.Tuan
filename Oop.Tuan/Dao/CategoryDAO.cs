@@ -10,27 +10,5 @@ namespace Oop.Tuan.Dao
 {
     public class CategoryDAO : BaseDao
     {
-        /// <summary>
-        /// Hàm InsertCategory để insert đối tượng Category vào database
-        /// </summary>
-        public void InsertCategory(BaseRow obj)
-        {
-            InsertTable(obj);
-        }
-
-        public void UpdateCategory(BaseRow obj, int id)
-        {
-            UpdateTable(obj, id);
-        }
-
-        public void SelectCategory(string Categoryname)
-        {
-            SelectTable(Categoryname);
-        }
-
-        public void PrintCategory(string CategoryName)
-        {
-            PrintInforTable(CategoryName);
-        }
     }
 }
