@@ -14,12 +14,12 @@ namespace Oop.Tuan.Dao
         //private static Database instance;
 
         /// <summary>
-        /// sử dụng cấu trúc dữ liệu Dictionary để luuw trữ tên bảng và các hàng
+        /// Uses the Dictionary data structure to store table names and rows
         /// </summary>
         private Dictionary<string, List<BaseRow>> mydatabase;
 
         /// <summary>
-        /// Hàm GetInstance tạo một thể hiện duy nhất của database để truy cập tới.
+        /// The GetInstance function creates a single instance of the database to access.
         /// </summary>
 
         //public static Database Instance()
@@ -40,8 +40,8 @@ namespace Oop.Tuan.Dao
             mydatabase = new Dictionary<string, List<BaseRow>>();
         }
         /// <summary>
-        /// hàm insertTable để thêm các bảng.
-        /// obj : lấy tên các đối tượng con của baseRow làm tên bảng.
+        /// insertTable function to add tables.
+        /// obj : get the names of baseRow's child objects as table names.
         /// </summary>
         public void InsertTable(BaseRow obj)
         {
@@ -53,8 +53,8 @@ namespace Oop.Tuan.Dao
         }
 
         /// <summary>
-        /// Hàm selecTable để lấy ra dang sách các hàng trong một bảng.
-        /// name : truyền vào tên bảng.
+        /// SelectTable function to retrieve a list of rows in a table.
+        /// name : pass in table name.
         /// </summary>
         public List<BaseRow> SelectTable(string name)
         {
@@ -68,9 +68,9 @@ namespace Oop.Tuan.Dao
         }
 
         /// <summary>
-        /// Hàm UpdateTable để thay đổi giá trị các thuộc tính của một dòng trong bảng.
-        /// obj : để lấy tên bảng và cập nhật các giá trị thay đổi.
-        /// id : tìm id có trong bảng. 
+        /// UpdateTable function to change the attribute values ​​of a row in the table.
+        /// obj : to get table name and update changed values.
+        /// id : find id in the table.
         /// </summary>
         public void UpdateTable(BaseRow obj, int id)
         {
@@ -86,9 +86,9 @@ namespace Oop.Tuan.Dao
         }
 
         /// <summary>
-        /// Hàm DeleteTable xoá dòng trong bảng.
-        /// name : truyền vào tên bảng.
-        /// id : truyền vào id của dòng trong bảng để xoá dòng chứa id.
+        /// The DeleteTable function deletes rows in the table.
+        /// name : pass in table name.
+        /// id: pass the id of the row in the table to delete the row containing the id.
         /// </summary>
         public void DeleteTable(string name, int id)
         {
@@ -103,7 +103,7 @@ namespace Oop.Tuan.Dao
         }
 
         /// <summary>
-        /// Hàm TruncateTable xoá toàn bộ các bảng có trong database.
+        /// The TruncateTable function deletes all tables in the database.
         /// </summary>
         public void TruncateTable()
         {
@@ -114,7 +114,7 @@ namespace Oop.Tuan.Dao
         }
 
         /// <summary>
-        /// Hàm PrintMydatabase để in ra các thong tin của các bảng có trong database
+        /// PrintMydatabase function to print information of tables in the database
         /// </summary>
         public void PrintMydatabase()
         {
@@ -127,6 +127,9 @@ namespace Oop.Tuan.Dao
             }
         }
 
+        /// <summary>
+        /// PrintInforTable function to print information of a table in the Database.
+        /// </summary>
         public void PrintInforTable(string tableName)
         {
 
@@ -137,7 +140,7 @@ namespace Oop.Tuan.Dao
         }
 
         /// <summary>
-        /// Hàm UpdateTableById để cập nhặt các dòng trong bảng bằng id truyền vào
+        /// UpdateTableById function use to update an Object in the Databse with input id.
         /// </summary>
         public void UpdateTableById(BaseRow obj, int id)
         {

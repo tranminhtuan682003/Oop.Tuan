@@ -9,13 +9,10 @@ namespace Oop.Tuan.Entity
 {
     public class ProductDemo : BaseRow
     {
-        /// <summary>
-        /// categoryId thuộc tính riêng của đối tượng Product 
-        /// </summary>
         private int categoryId {  get; set; }
 
         /// <summary>
-        /// ProductDemo hàm khởi tạo
+        /// Constractor of class Product
         /// </summary>
         public ProductDemo(int id,string name,int categoryId) {
             this.Id = id;
@@ -24,7 +21,7 @@ namespace Oop.Tuan.Entity
         }
 
         /// <summary>
-        /// thể h
+        ///  Product override function of BaseRow to deploy it its way
         /// </summary>
         public override void Infor()
         {

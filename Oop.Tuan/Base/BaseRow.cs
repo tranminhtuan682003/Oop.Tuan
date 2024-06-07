@@ -7,7 +7,7 @@ namespace Oop.Tuan.Base
         public string Name { get; set; }
 
         /// <summary>
-        /// hàm ảo Infor dùng cho các lớp con thể hiện tính đa hình của chúng
+        /// virtual function used for overriding the children's class to print their information.
         /// </summary>
         public virtual void Infor()
         {

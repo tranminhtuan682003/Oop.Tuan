@@ -10,7 +10,7 @@ namespace Oop.Tuan.Entity
     public class Accessotion : BaseRow
     {
         /// <summary>
-        /// hàm khởi tạo của class Accessotion
+        /// Constractor of class Accessory
         /// </summary>
         public Accessotion(int id, string name)
         {
@@ -19,7 +19,7 @@ namespace Oop.Tuan.Entity
         }
 
         /// <summary>
-        /// Accessotion triển khai lại phương thức Infor theo cách riêng của mình
+        /// Accessotion override function of Base to deploy it its way
         /// </summary>
         public override void Infor()
         {

@@ -10,7 +10,7 @@ namespace Oop.Tuan.Entity
     public class Category : BaseRow
     {
         /// <summary>
-        /// hàm khởi tạo của class Category
+        /// Constractor of classCategory
         /// </summary>
         public Category(int id, string name)
         {
@@ -19,7 +19,7 @@ namespace Oop.Tuan.Entity
         }
 
         /// <summary>
-        /// Category triển khai lại phương thức Infor theo cách riêng của mình
+        /// Category override function of Base to deploy it its way
         /// </summary>
         public override void Infor()
         {
